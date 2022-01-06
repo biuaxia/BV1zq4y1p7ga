@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>内容渲染指令</h2>
+        <ol>
+            <li>v-text：会覆盖默认文本内容</li>
+            <li>{{ }}：⭐(常用)插值表达式，解决 v-text 覆盖默认文本内容的问题</li>
+            <li>v-html：上面两个只能渲染纯文本内容，这个可以渲染html标签的字符串</li>
+        </ol>
+    </div>
+    <hr>
+    <h2>Vue区域</h2>
+    <div id="app">
+        <p v-text="username"></p>
+        <p v-text="gender">性别</p>
+
+        <p>姓名：{{username}}</p>
+        <p>性别：{{gender}}</p>
+
+        <p>v-text 渲染结果：<span v-text="description"></span></p>
+        <p>双花括号 渲染结果：{{description}}</p>
+        <p>v-html 渲染结果：<span v-html="description"></span></p>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                username: 'zs',
+                gender: '男',
+                description: '<i>啊哈哈哈</i>'
+            },
+        })
+    </script>
+</body>
+
+</html>
