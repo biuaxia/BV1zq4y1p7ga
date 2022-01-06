@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>双向绑定指令</h2>
+        <ol>
+            <li>`.number`，将绑定值类型限定为数字</li>
+            <li>`.trim`，将绑定值首尾空格删除</li>
+            <li>`.lazy`，绑定值失去焦点才会更新到 VM 中</li>
+        </ol>
+        <p></p>
+    </div>
+    <hr>
+    <h2>Vue区域</h2>
+    <div id="app">
+        <p>count 的值为: {{count}}</p>
+        <input type="text" v-model.number="count">
+
+        <p>province 的值为: {{province}}</p>
+        <select v-model="province">
+            <option value="">请选择</option>
+            <option value="1">四川</option>
+            <option value="2">安徽</option>
+            <option value="3">青海</option>
+        </select>
+
+        <p>{{desc}}</p>
+        <input type="text" v-model.trim="desc">
+
+        <p>lazy版本：{{desc}}</p>
+        <input type="text" v-model.lazy="desc">
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                province: 0,
+                desc: 'Hello world!',
+            },
+        })
+    </script>
+</body>
+
+</html>
