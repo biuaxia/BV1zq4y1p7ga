@@ -15,17 +15,19 @@
             <li>完整形式：`v-bind`</li>
             <li>简写形式：`:`</li>
         </ol>
+        <p>都可以使用 Javascript 表达式，例如 `:id="'list-' + id" 等形式</p>
     </div>
     <hr>
     <h2>Vue区域</h2>
     <div id="app">
         <input type="text" v-bind:placeholder="inputValue">
-        <hr>
         <img v-bind:src="imgSrc" alt="">
-        <br>
-        <input type="text" :placeholder="inputValue">
         <hr>
+        <input type="text" :placeholder="inputValue">
         <img :src="imgSrc" alt="">
+        <hr>
+        <div :id="age+1">F12看下我的ID</div>
+        <div :id="'list-'+age">F12看下我的ID</div>
     </div>
 
     <script src="./lib/vue-2.6.12.js"></script>
@@ -36,6 +38,7 @@
             data: {
                 inputValue: '请输入内容',
                 imgSrc: './assets/images/logo.png',
+                age: 10,
             },
         })
     </script>
