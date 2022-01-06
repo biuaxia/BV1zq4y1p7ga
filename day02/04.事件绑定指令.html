@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>事件绑定指令</h2>
+        <ol>
+            <li>`v-on`：通过 `v-on` 绑定的事件处理函数，需要在 `methods` 节点中进行声明</li>
+        </ol>
+        <p>注意：原生 DOM 对象有 `onclick`、`oninput`、`onkeyup` 等原生事件，替换为 vue
+            的事件绑定形式后，分别为：`v-on:click`、`v-on:input`、`v-on:keyup`。</p>
+    </div>
+    <hr>
+    <h2>Vue区域</h2>
+    <div id="app">
+        <p>count 的值为: {{count}}</p>
+        <button v-on:click="addCount">+1</button>
+        <button v-on:click="print">print</button>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            methods: {
+                addCount() {
+                    // this 表示 new 出来的 vm 对象
+                    // 通过 this 可以访问到 data 中的数据
+                    this.count += 1;
+                },
+                print() {
+                    console.dir(this);
+                    console.dir(vm);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
