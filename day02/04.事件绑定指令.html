@@ -12,17 +12,20 @@
     <div>
         <h2>事件绑定指令</h2>
         <ol>
-            <li>`v-on`：通过 `v-on` 绑定的事件处理函数，需要在 `methods` 节点中进行声明</li>
+            <li>完整形式 `v-on`：通过 `v-on` 绑定的事件处理函数，需要在 `methods` 节点中进行声明</li>
+            <li>简写形式 `@`：将 `v-on:` 替换为 `@` 是一样的效果</li>
         </ol>
         <p>注意：原生 DOM 对象有 `onclick`、`oninput`、`onkeyup` 等原生事件，替换为 vue
             的事件绑定形式后，分别为：`v-on:click`、`v-on:input`、`v-on:keyup`。</p>
+        <p>事件函数如果比较简单，可以直接写。注意不要加 this</p>
     </div>
     <hr>
     <h2>Vue区域</h2>
     <div id="app">
         <p>count 的值为: {{count}}</p>
         <button v-on:click="addCount">+1</button>
-        <button v-on:click="print">print</button>
+        <button @click="print">print</button>
+        <button @click="count += 1">事件函数简写</button>
     </div>
 
     <script src="./lib/vue-2.6.12.js"></script>
