@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>事件对象event</h2>
+        <ol>
+            <li>使用不带圆括号的形式(@click="click")，event 对象将被自动当做实参传入；</li>
+            <li>使用带圆括号的形式(v-on:click="click()")，我们需要使用 $event 变量显式(@click="click($event, xxx)")传入 event 对象。</li>
+        </ol>
+        <p>在原生的 DOM 事件绑定中，可以在事件处理函数的形参处，接收事件对象 event。同理，在 `v-on` 指令（简写为 `@` ）所绑定的事件处理函数中，同样可以接收到事件对象 `event`。</p>
+        <p><i>事件对象 Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。</i></p>
+        <p><b>event 的 target 属性就是被绑定的 DOM 对象</b></p>
+    </div>
+    <hr>
+    <h2>Vue区域</h2>
+    <div id="app">
+        <p>count 的值为: {{count}}</p>
+        <button v-on:click="addCount">+1</button>
+        <!-- 演示了传参和传参时event事件对象的传递用法 -->
+        <button v-on:click="addCount($event, 2)">+2</button>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            methods: {
+                // 接收事件参数对象 event，简写为 e
+                addCount(e, step) {
+                    console.dir(e);
+                    const newBgColor = e.target.style.backgroundColor;
+                    e.target.style.backgroundColor = newBgColor === "" ? 'cyan' : '';
+                    if (step) {
+                        this.count += step;
+                    } else {
+                        this.count += 1;
+                    }
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
