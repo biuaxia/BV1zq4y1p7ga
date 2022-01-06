@@ -16,6 +16,9 @@ module.exports = {
     mode: 'development',
     // mode: 'production',
 
+    // 配合 mode -> development，将代码实际行数输出到调试工具中
+    devtool: 'eval-source-map',
+
     // 打包配置
     entry: path.join(__dirname, './src/index.js'),
     output: {
