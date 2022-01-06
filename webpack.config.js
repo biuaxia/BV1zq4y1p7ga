@@ -13,11 +13,12 @@ const cleanPlugin = new CleanWebpackPlugin()
 
 module.exports = {
     // 打包模式, development, production
+    // devtool 省略将不输出报错文件和行数且不暴露源码
     mode: 'development',
-    // mode: 'production',
+    devtool: 'eval-source-map', // 建议配合 development 使用，输出报错文件和行数且暴露源码
 
-    // 配合 mode -> development，将代码实际行数输出到调试工具中
-    devtool: 'eval-source-map',
+    // mode: 'production',
+    // devtool: 'nosources-source-map', // 建议配合 production 使用，输出报错文件和行数且不暴露源码
 
     // 打包配置
     entry: path.join(__dirname, './src/index.js'),
