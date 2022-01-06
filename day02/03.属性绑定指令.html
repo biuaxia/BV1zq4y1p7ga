@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>属性绑定指令</h2>
+        <ol>
+            <li>完整形式：`v-bind`</li>
+            <li>简写形式：`:`</li>
+        </ol>
+    </div>
+    <hr>
+    <h2>Vue区域</h2>
+    <div id="app">
+        <input type="text" v-bind:placeholder="inputValue">
+        <hr>
+        <img v-bind:src="imgSrc" alt="">
+        <br>
+        <input type="text" :placeholder="inputValue">
+        <hr>
+        <img :src="imgSrc" alt="">
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                inputValue: '请输入内容',
+                imgSrc: './assets/images/logo.png',
+            },
+        })
+    </script>
+</body>
+
+</html>
